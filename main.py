@@ -31,6 +31,48 @@ class CarCostController(QMainWindow):
         self.ui.tableWidget.setSelectionBehavior(self.ui.tableWidget.SelectionBehavior.SelectRows)
         self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.ui.tableWidget.verticalHeader().setVisible(False)
+
+        self.ui.tableWidget.setStyleSheet("""
+            QTableWidget {
+                background-color: #2b2b2b;
+                color: #ffffff;
+                gridline-color: #555;
+                font-size: 13px;
+            }
+            QTableWidget::item {
+                background-color: #2b2b2b;
+                color: #ffffff;
+                padding: 5px;
+                border-bottom: 1px solid #444;
+            }
+            QTableWidget::item:selected {
+                background-color: #3a6ea5;
+                color: white;
+            }
+            QHeaderView::section {
+                background-color: #3b3b3b;
+                color: #ffffff;
+                font-weight: bold;
+                font-size: 13px;
+                padding: 8px;
+                border: 1px solid #555;
+                border-left: none;
+                border-top: none;
+            }
+            QHeaderView::section:first {
+                border-left: 1px solid #555;
+            }
+            QHeaderView::section:last {
+                border-right: 1px solid #555;
+            }
+            QHeaderView::section:checked {
+                background-color: #4a4a4a;
+            }
+            QTableCornerButton::section {
+                background-color: #3b3b3b;
+                border: 1px solid #555;
+            }
+        """)        
     
     def setup_validators(self):
         self.ui.Name.setPlaceholderText("Введите название")
