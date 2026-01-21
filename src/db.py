@@ -15,7 +15,6 @@ class DatabaseManager():
             
             self.connection.commit()
         except Exception:
-            print(f"ERROR: {Exception}")
             self.connection.rollback()
             return False
     
@@ -25,7 +24,6 @@ class DatabaseManager():
             self.cursor = self.connection.cursor()
             self.CreateTablet()
         except Exception:
-            print(f"ERROR: {Exception}")
             return False
                 
     def InsertCost(self, title, mileage, price):
@@ -36,10 +34,8 @@ class DatabaseManager():
             ''', (title, mileage, price))
             
             self.connection.commit()
-            print(f'SUCCESSFULLY: Расход "{title}" добавлен!')
             return self.cursor.lastrowid
         except Exception:
-            print(f"ERROR: {Exception}")
             self.connection.rollback()
             return False
             
@@ -49,19 +45,14 @@ class DatabaseManager():
 
             row = self.cursor.fetchone()
             if row is None:
-                print(f"ERROR: Расход с ID {id} не найден")
                 return False
-
-            this_title = row[0]
 
             self.cursor.execute('DELETE FROM Costs WHERE id = ?', (id,))
             self.connection.commit()
             
-            print(f'SUCCESSFULLY: Расход "{this_title}" удалён!')
             return True 
             
         except Exception:
-            print(f"ERROR: {Exception}")
             self.connection.rollback()
             return False
         
@@ -70,7 +61,6 @@ class DatabaseManager():
             self.cursor.execute('SELECT * FROM Costs')
             return self.cursor.fetchall()
         except Exception:
-            print(f"ERROR: {Exception}")
             self.connection.rollback()
             return []
             
@@ -79,7 +69,6 @@ class DatabaseManager():
             self.cursor.execute('SELECT * FROM Costs WHERE title = ?', (title,))
             return self.cursor.fetchall()
         except Exception:
-            print(f"ERROR: {Exception}")
             self.connection.rollback()
             return []
             
