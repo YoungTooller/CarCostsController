@@ -90,26 +90,26 @@ class CarCostController(QMainWindow):
         mileage_text = self.ui.Mileage.text().strip()
         price_text = self.ui.Price.text().strip()
         if not title:
-            QMessageBox.warning(self, "Ошибка", "Введите название расхода!")
+            QMessageBox.warning(self, "!", "Введите название расхода!")
             self.ui.Name.setFocus()
             return
         if not price_text:
-            QMessageBox.warning(self, "Ошибка", "Введите стоимость!")
+            QMessageBox.warning(self, "!", "Введите стоимость!")
             self.ui.Price.setFocus()
             return
         try:
             mileage = int(mileage_text) if mileage_text else 0
             price = int(price_text)
             if price <= 0:
-                QMessageBox.warning(self, "Ошибка", "Стоимость должна быть больше 0!")
+                QMessageBox.warning(self, "!", "Стоимость должна быть больше 0!")
                 self.ui.Price.setFocus()
                 return
             if mileage < 0:
-                QMessageBox.warning(self, "Ошибка", "Пробег не может быть отрицательным!")
+                QMessageBox.warning(self, "!", "Пробег не может быть отрицательным!")
                 self.ui.Mileage.setFocus()
                 return
         except ValueError:
-            QMessageBox.warning(self, "Ошибка", "Пробег и стоимость должны быть числами!")
+            QMessageBox.warning(self, "!", "Пробег и стоимость должны быть числами!")
             return
         result = self.db.InsertCost(title, mileage, price)
         if result:
@@ -118,14 +118,14 @@ class CarCostController(QMainWindow):
             self.ui.Price.clear()
             self.refresh_table()
             self.ui.Name.setFocus()
-            QMessageBox.information(self, "Успех", f"Расход '{title}' успешно добавлен!")
+            QMessageBox.information(self, "!", f"Расход '{title}' успешно добавлен!")
         else:
-            QMessageBox.critical(self, "Ошибка", "Не удалось добавить расход!")
+            QMessageBox.critical(self, "!", "Не удалось добавить расход!")
     
     def delete_cost(self):
         id_text = self.ui.deleted_index.text().strip()
         if not id_text:
-            QMessageBox.warning(self, "Ошибка", "Введите ID записи для удаления!")
+            QMessageBox.warning(self, "!", "Введите ID записи для удаления!")
             self.ui.deleted_index.setFocus()
             return
         try:
@@ -133,7 +133,7 @@ class CarCostController(QMainWindow):
             if cost_id <= 0:
                 raise ValueError
         except ValueError:
-            QMessageBox.warning(self, "Ошибка", "ID должен быть положительным числом!")
+            QMessageBox.warning(self, "!", "ID должен быть положительным числом!")
             self.ui.deleted_index.clear()
             self.ui.deleted_index.setFocus()
             return
@@ -149,9 +149,9 @@ class CarCostController(QMainWindow):
             if result:
                 self.ui.deleted_index.clear()
                 self.refresh_table()
-                QMessageBox.information(self, "Успех", f"Запись с ID {cost_id} удалена!")
+                QMessageBox.information(self, "", f"Запись с ID {cost_id} удалена!")
             else:
-                QMessageBox.warning(self, "Ошибка", f"Запись с ID {cost_id} не найдена!")
+                QMessageBox.warning(self, "!", f"Запись с ID {cost_id} не найдена!")
                 self.ui.deleted_index.clear()
                 self.ui.deleted_index.setFocus()
     

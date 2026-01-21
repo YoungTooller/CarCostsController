@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowuNagGC.ui'
+## Form generated from reading UI file 'main_windowvExyux.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -32,6 +32,7 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QSize(640, 480))
         MainWindow.setMaximumSize(QSize(640, 480))
+        MainWindow.setContextMenuPolicy(Qt.ContextMenuPolicy.DefaultContextMenu)
         MainWindow.setStyleSheet(u"QWidget {\n"
 "    background-color: #2b2b2b;\n"
 "    color: #ffffff;\n"
@@ -49,12 +50,10 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover {\n"
 "    background-color: #4a4a4a;\n"
-"    box-shadow: 0 4px 12px rgba(0,0,0,0.3);\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
 "    background-color: #2a2a2a;\n"
-"    box-shadow: 0 2px 6px rgba(0,0,0,0.4);\n"
 "}\n"
 "\n"
 "QLineEdit, QTextEdit {\n"
@@ -67,7 +66,6 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus, QTextEdit:focus {\n"
 "    border-color: #66ccff;\n"
-"    box-shadow: 0 0 8px rgba(102,204,255,0.3);\n"
 "}\n"
 "\n"
 "QLabel {\n"
@@ -77,8 +75,7 @@ class Ui_MainWindow(object):
 "QComboBox {\n"
 "    background-color: #3b3b3b;\n"
 "    border: 2px solid #555;\n"
-"  "
-                        "  border-radius: 6px;\n"
+"    border-radius: 6px;\n"
 "    color: white;\n"
 "}\n"
 "\n"
@@ -87,7 +84,8 @@ class Ui_MainWindow(object):
 "    width: 30px;\n"
 "}\n"
 "\n"
-"QComboBox QAbstractItemView {\n"
+"QCombo"
+                        "Box QAbstractItemView {\n"
 "    background-color: #3b3b3b;\n"
 "    border: 1px solid #555;\n"
 "    selection-background-color: #5a5a5a;\n"
