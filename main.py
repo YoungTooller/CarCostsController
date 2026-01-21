@@ -23,11 +23,11 @@ class CarCostController(QMainWindow):
         headers = ["ID", "Дата", "Название", "Пробег", "Стоимость"]
         self.ui.tableWidget.setColumnCount(len(headers))
         self.ui.tableWidget.setHorizontalHeaderLabels(headers)
-        self.ui.tableWidget.setColumnWidth(0, 50)
+        self.ui.tableWidget.setColumnWidth(0, 35)
         self.ui.tableWidget.setColumnWidth(1, 150)
         self.ui.tableWidget.setColumnWidth(2, 200)
         self.ui.tableWidget.setColumnWidth(3, 100)
-        self.ui.tableWidget.setColumnWidth(4, 120)
+        self.ui.tableWidget.setColumnWidth(4, 100)
         self.ui.tableWidget.setSelectionBehavior(self.ui.tableWidget.SelectionBehavior.SelectRows)
         self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.ui.tableWidget.verticalHeader().setVisible(False)
