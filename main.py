@@ -1,7 +1,7 @@
 import sys
 import os
 from datetime import datetime
-from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem, QAbstractItemView
 from PySide6.QtCore import Qt
 from src.db import DatabaseManager
 from ui.ui_main_window import Ui_MainWindow
@@ -31,6 +31,7 @@ class CarCostController(QMainWindow):
         self.ui.tableWidget.setSelectionBehavior(self.ui.tableWidget.SelectionBehavior.SelectRows)
         self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.ui.tableWidget.verticalHeader().setVisible(False)
+        self.ui.tableWidget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
 
         self.ui.tableWidget.setStyleSheet("""
             QTableWidget {
